@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinapple</title>
+    <script src="https://kit.fontawesome.com/5208dd0793.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/more.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="more.js"></script> 
+</head>
+<body>
+    <div class="header">
+        <div class="line1">
+            <div class="search">
+                
+            </div>
+            <div class="logo">
+                <a href="home.html">
+                    <img src="image/logo.png" alt="">
+                </a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Tìm kiếm...">
+                <div class="icon-search"><p><i class="fas fa-search"></i></p></div>
+            </div>
+        </div>
+        <div class="line2">
+            <ul class="menu">
+                <a href="home.html">
+                    <li class="menu-item"><p>New Arival</p></li>
+                </a>
+                <a href="more.html">
+                    <li id="checked" class="menu-item"><p>More</p></li>
+                </a>
+            </ul>
+        </div>
+        <section>
+            <ul>
+                <li class="list active" data-filter="all">All</li>
+                <li class="list " data-filter="macbook">Macbook</li>
+                <li class="list " data-filter="imac">IMac</li>
+                <li class="list " data-filter="mini">Mac Mini</li>
+                <li class="list " data-filter="access">Accessories</li>
+            </ul>
+            <div class="product" id ="product">
+                
+            </div>
+            <br>
+            <br>
+
+        </section>
+        <script>
+               function1();
+            let list = document.querySelectorAll('.list');
+            let itembox = document.querySelectorAll('.itembox');
+
+            for (let i = 0; i < list.length; i++) {
+                list[i].addEventListener('click', function(){
+                    for (let j = 0; j < list.length; j++) {
+                        list[j].classList.remove('active');     
+                    }
+                    
+                    this.classList.add('active');
+
+                    let datafilter = this.getAttribute('data-filter');
+
+                    for (let k = 0; k < itembox.length; k++) {
+                        itembox[k].classList.remove('active');
+                        itembox[k].classList.add('hide');
+                        
+                        if(itembox[k].getAttribute('data-item') == datafilter || datafilter == "all"){
+                            itembox[k].classList.remove('hide');
+                            itembox[k].classList.add('active');
+                        }
+                    }
+                })
+                
+            }
+         
+        </script>
+        
+        
+        
+</body>
+</html>
+
